@@ -1,0 +1,33 @@
+<form>
+
+	<div class="form-group">
+		<label>ລາຄາ (¥)</label>
+		<input type="number" id="price" placeholder="ລາຄາ" class="form-control" [(ngModel)]="price"  required>
+	</div>
+
+	<div class="form-group">
+		<label>ນຳ້ຫນັກ (g)</label>
+		<input type="number" placeholder="ນຳ້ຫນັກ" id="weight" class="form-control" [(ngModel)]="weight"  required>
+	</div>
+
+	<div class="form-group">
+		<label>ລາຄາ/2ໂລ (¥)</label>
+		<input type="number" id="pp2kg" placeholder="ລາຄາ/2ໂລ" class="form-control" [(ngModel)]="pp2kg" required>
+	</div>
+
+	<div class="form-group">
+		<label>1¥/kip</label>
+		<input type="number" id="yenkip" placeholder="1¥/kip" class="form-control" [(ngModel)]="yenkip" required>
+	</div>
+
+	<button type="submit" (click)="calcula()" class="btn btn-success">ຄິດໄລ່</button>
+	<br>
+	<br>
+
+	<div>
+		<span [hidden]="!clicked">ຄ່າສົ່ງ: </span>{{sendFee | currency: 'JPY' : true}} 
+	</div>
+
+	<div id="result"><h3><span [hidden]="!clicked">ຕົ້ນທຶນ: </span>{{yenResult | currency: 'JPY' : true}}  <span [hidden]="!clicked">→ </span>{{kipResult | currency: 'kip'}}</h3></div>
+
+</form>
